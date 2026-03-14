@@ -18,4 +18,17 @@ const searchMovies = async (requestAnimationFrame, res) => {
         res.json(response.data);
     } catch (error) {
         console.log()
-    }
+    };
+
+    const getMovieDetails = async (req, res) => {
+        try {
+
+        } catch (error) {
+
+        }
+    };
+
+    module.exports = {
+        searchMovies,
+        getMovieDetails
+    };
