@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const searchMovies = async (requestAnimationFrame, res) => {
+const searchMovies = async (req, res) => {
   try {
     const title = req.query.title;
 
@@ -17,21 +17,23 @@ const searchMovies = async (requestAnimationFrame, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.log();
+    console.log("error fetch: ", error.message);
+    res.status(500).json({ error: 'failed to fetch data'});
   }
 };
 
 const getMovieDetails = async (req, res) => {
   try {
-    const imbId = req.id.params.id;
+    const imdbId = req.params.id;
     const response = await axios.get("http://www.omdbapi.com/", {
       params: {
         i: imdbId,
         apikey: process.env.OMDB_API_KEY,
       },
     });
-    req.json(response.data);
+    res.json(response.data);
   } catch (error) {
+    console.error("error fetching details: ", error.message);
     res.status(500).json({ error: "failed to fetch movie details from OMDB" });
   }
 };
