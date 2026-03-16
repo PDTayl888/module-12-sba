@@ -1,0 +1,2 @@
+To see this application in action in terminal either run command "npm run dev" or "node server.js" to initiate a server at localhost:3001.
+in search bar try this to test api: http://localhost:3001/api/search?title=batman to find a specific movie (Batman) or http://localhost:3001/api/movies/tt0372784 for details about that specific movie. All data will be displayed in raw json format.
